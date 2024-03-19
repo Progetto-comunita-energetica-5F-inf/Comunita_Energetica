@@ -1,0 +1,86 @@
+/* ------------------------------------- */
+/* ?Basic Setup */
+/* ------------------------------------- */
+
+:root {
+    --color-sky-blue: #8ECAE6;
+    --color-blue-green: #219EBC;
+    --color-prussian-blue: #023047;
+    --color-selective-yellow: #FFB703;
+    --color-ut-orange: #FB8500;
+    
+    --color-dark: #1C1D20;
+    --color-dark-dark: #141517;
+    --color-light: #FFFFFF;
+    --color-border: rgba(28, 29, 32, 0.175);
+    --color-text: #1C1D20;
+    --color-text-light: #FFF;
+    --alert-error: #ff4444;
+    --alert-success: #24C958;
+
+    --border-test: 1px solid red;
+
+    --animation-primary: all .5s cubic-bezier(.7, 0, .3, 1);
+    --animation-fast: all .3s cubic-bezier(.7, 0, .3, 1);
+    --animation-smooth: all .7s cubic-bezier(.7, 0, .3, 1);
+    --animation-slow: all .9s cubic-bezier(.7, 0, .3, 1);
+    
+    --section-padding: clamp(5em, 21vh, 12em);
+    --container-padding: clamp(2.5em, 8vw, 8em);
+    --gap-padding: clamp(1.5em, 4vw, 2.5em);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    color: var(--color-dark);
+    background-color: var(--color-dark-dark);
+    font-family: 'Roboto Slab', serif;
+    font-weight: 400;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    cursor: default;
+}
+
+.container {
+    margin: 0 auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    max-width: 100em;
+}
+
+.section {
+    display: block;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    position: relative;
+}
+
+/* ------------------------------------- */
+/* ?Resulable components? */
+/* ------------------------------------- */
+
+/* !------Headings------! */
+
+/* !------Paragraphs------! */
+
+/* !------Links------! */
+
+/* !------Icons------! */
+
+/* !------Images------! */
+
+/* !------Buttons------! */
+
+
+/* ------------------------------------- */
+/* ?? */
+/* ------------------------------------- */
