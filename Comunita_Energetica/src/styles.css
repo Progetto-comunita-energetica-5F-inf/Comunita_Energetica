@@ -8,13 +8,14 @@
     --color-sky-blue: #8ECAE6;
     --color-blue-green: #219EBC;
     --color-prussian-blue: #023047;
-    --color-selective-yellow: #FFB703;
+    --color-selective-yellow: #ffd15c;
     --color-ut-orange: #FB8500;
 
     --border-test: 1px solid red;
     
     --color-dark: #1C1D20;
     --color-dark-dark: #141517;
+    --color-bg-light: #1415178d;
     --color-light: #FFFFFF;
     --color-border: rgba(28, 29, 32, 0.175);
     --color-text: #1C1D20;
