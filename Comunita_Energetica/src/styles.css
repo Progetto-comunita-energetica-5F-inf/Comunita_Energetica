@@ -18,6 +18,7 @@
     --color-bg-light: #1415178d;
     --color-light: #FFFFFF;
     --color-border: rgba(28, 29, 32, 0.175);
+    --color-border-btn: rgba(255, 255, 255, 0.6);
     --color-text: #1C1D20;
     --color-text-light: #FFF;
     --alert-error: #ff4444;
