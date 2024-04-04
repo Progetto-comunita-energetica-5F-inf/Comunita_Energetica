@@ -21,31 +21,26 @@ import sk from "../static/images/sky.jpg";
 //! TODOS
 
 //! GRAPHICS SETTINGS
-//? Used throughout the project to decide graphical features
+//? Used throughout the project to decide graphical feqqqqatures
 let graphicsSettings: GraphicsSettings;
 //? Can be set to use different presets (High, Medium, Low)
 graphicsSettings = graphics(GraphicsPresets.High);
 //? Or use custom settings
 graphicsSettings = {
-	ground: true,
+	ground: false,
 	lights: true,
 	fog: false,
-	antialiasing: true,
-	quality: Quality.HighPerformance
-}
+	antialiasing: false,
+	quality: Quality.LowPower
+} as GraphicsSettings; // Unnecessary but makes sure its clear
 //! GRAPHICS SETTINGS
 
 //? Defines the size of the grid, will later be take the information dynamically from a json
-const houses = [
-	{x: 1, z: 4, y: 1},
-	{x: 2, z: 3, y: 2},
-	{x: 3, z: 2, y: 3},
-	{x: 4, z: 1, y: 4},
-
-	{x: 1, z: 5, y: 8},
-	{x: 2, z: 4, y: 7},
-	{x: 3, z: 3, y: 6},
-	{x: 4, z: 2, y: 5},
+const houses: Building[] = [
+	{type: BuildingType.House, position: {x: 1, z: 4, y: 0}, size: {x: 1, z:1, y: 1}},
+	{type: BuildingType.House, position: {x: 3, z: 3, y: 0}, size: {x: 3, z:1, y: 1}},
+	{type: BuildingType.House, position: {x: 5, z: 2, y: 0}, size: {x: 5, z:2, y: 1}},
+	{type: BuildingType.House, position: {x: 1, z: 1, y: 0}, size: {x: 1, z:4, y: 2}}
 ]
 let gridSize = {
 	x: 10,
@@ -67,7 +62,7 @@ document.body.appendChild( renderer.domElement );
 const light = new PointLight(0xffffff, 400); // Follows the camera for general lighting
 const cursor = new PointLight(0xffff00, 5); // Light below the pointer
 const cursorLighting = new PointLight(0xffff00, 2); // Light above the pointer
-let pointer = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.0, 0.8), new THREE.MeshPhongMaterial({color:0xff0000}))
+let pointer = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.0, 0.8), new THREE.MeshStandardMaterial({color:0xff0000}))
 pointer.position.y = 0.5;
 cursorLighting.position.y = 2;
 cursor.add(pointer, cursorLighting);
@@ -218,14 +213,16 @@ function updateCameraPosition() {
 }
 
 //? X, Z: Position, Y: Height
-function placeBuilding(position: Vector3D) {	
+function placeBuilding(building: Building) {
+	let position = building.position;
+	let size = building.size;	
 	grid[1][position.x][position.z] = buildEntity({
 		type: BuildingType.House,
-		position: {x: position.x, z: position.z, y: 1 + position.y / 2},
+		position: {x: position.x, z: position.z, y: 1 + size.y / 2},
 		size: {
-			x: 1,
-			y: position.y,
-			z: 1
+			x: size.x,
+			y: size.y,
+			z: size.y
 		}
 	}, 0x555555)
 }
