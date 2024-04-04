@@ -36,12 +36,6 @@ graphicsSettings = {
 //! GRAPHICS SETTINGS
 
 //? Defines the size of the grid, will later be take the information dynamically from a json
-const houses: Building[] = [
-	{type: BuildingType.House, position: {x: 1, z: 4, y: 0}, size: {x: 1, z:1, y: 1}},
-	{type: BuildingType.House, position: {x: 3, z: 3, y: 0}, size: {x: 3, z:1, y: 1}},
-	{type: BuildingType.House, position: {x: 5, z: 2, y: 0}, size: {x: 5, z:2, y: 1}},
-	{type: BuildingType.House, position: {x: 1, z: 1, y: 0}, size: {x: 1, z:4, y: 2}}
-]
 let gridSize = {
 	x: 10,
 	y: 10
@@ -143,6 +137,7 @@ for (let index = 0; index < gridSize.x; index++) {
 let selectionBuilding: THREE.Mesh[][] = [];
 let hovered = grid[0][Math.floor(cursor.position.x)][Math.floor(cursor.position.z)].position;
 function cursorPosition() {
+	//pointer.position.y = 0.5;
 	try {
 		selectionBuilding = grid[1][Math.floor(hovered.x)][Math.floor(hovered.z)];
 		hovered = grid[0][Math.floor(cursor.position.x)][Math.floor(cursor.position.z)].position;
@@ -162,7 +157,7 @@ function cursorPosition() {
 	}
 	selection = grid[0][Math.floor(hovered.x)][Math.floor(hovered.z)]
 	selection.material.color = new THREE.Color(0xffff00);
-	
+	//pointer.position.y += selection.scale.y;
 }
 
 let halfX = Math.floor(grid[0].length / 2)
@@ -212,22 +207,33 @@ function updateCameraPosition() {
 	controls.target.y = 0;
 }
 
-//? X, Z: Position, Y: Height
 function placeBuilding(building: Building) {
+	const widthFix = 0.15; // Added to x and z size to fill the gaps between grid tiles
 	let position = building.position;
 	let size = building.size;	
-	grid[1][position.x][position.z] = buildEntity({
-		type: BuildingType.House,
-		position: {x: position.x, z: position.z, y: 1 + size.y / 2},
+	let placedBuilding = buildEntity({
+		type: building.type,
+		position: {
+			x: position.x - +(size.x % 2 == 0) * 0.5, 
+			z: position.z - +(size.z % 2 == 0) * 0.5, 
+			y: 1 + size.y / 2
+		},
 		size: {
-			x: size.x,
-			y: size.y,
-			z: size.y
+			//? +boolean >> true: 1, false: 0, ex1: +false >> 1, ex2: 2 + +true >> 3
+			//? Funky javascript ¯\_(ツ)_/¯
+			x: size.x + +(size.x > 1) * widthFix, 
+			z: size.z + +(size.z > 1) * widthFix,
+			y: size.y
 		}
 	}, 0x555555)
+	grid[1][position.x][position.z] = placedBuilding;
+
 }
 
-houses.forEach(building => placeBuilding(building))
+[
+	{type: BuildingType.House, position: {x: 3, z: 3, y: 0}, size: {x: 2, z:3, y: 1}},
+	{type: BuildingType.House, position: {x: 6, z: 3, y: 0}, size: {x: 3, z:1, y: 1}},
+].forEach(building => placeBuilding(building))
 
 //! ANIMATION LOOP
 function animate() {
