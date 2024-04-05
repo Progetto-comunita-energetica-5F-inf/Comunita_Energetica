@@ -137,7 +137,6 @@ for (let index = 0; index < gridSize.x; index++) {
 let selectionBuilding: THREE.Mesh[][] = [];
 let hovered = grid[0][Math.floor(cursor.position.x)][Math.floor(cursor.position.z)].position;
 function cursorPosition() {
-	//pointer.position.y = 0.5;
 	try {
 		selectionBuilding = grid[1][Math.floor(hovered.x)][Math.floor(hovered.z)];
 		hovered = grid[0][Math.floor(cursor.position.x)][Math.floor(cursor.position.z)].position;
@@ -147,7 +146,6 @@ function cursorPosition() {
 	}
 	let col = grid[1][Math.floor(hovered.x)][Math.floor(hovered.z)].material.color;
 	selectionBuilding.material.color = new THREE.Color(0x555555);
-	console.log(col);
 	
 	if (col.r + col.g + col.b > 0) {
 		
@@ -157,7 +155,14 @@ function cursorPosition() {
 	}
 	selection = grid[0][Math.floor(hovered.x)][Math.floor(hovered.z)]
 	selection.material.color = new THREE.Color(0xffff00);
-	//pointer.position.y += selection.scale.y;
+
+	if (cursor.position.y <= selectionBuilding.position.y) {
+		cursor.position.y += 1;
+	} else if (selectionBuilding.position.y == 0) {
+		cursor.position.y = 1.5;
+	}
+	
+	
 }
 
 let halfX = Math.floor(grid[0].length / 2)
@@ -226,13 +231,19 @@ function placeBuilding(building: Building) {
 			y: size.y
 		}
 	}, 0x555555)
-	grid[1][position.x][position.z] = placedBuilding;
+	for (let hex = -1; hex < building.size.x; hex++) {
+		for (let zed = -1; zed < building.size.z; zed++) {
+			grid[1][position.x - hex][position.z + zed] = placedBuilding;
+		}	
+	}
 
 }
 
 [
-	{type: BuildingType.House, position: {x: 3, z: 3, y: 0}, size: {x: 2, z:3, y: 1}},
-	{type: BuildingType.House, position: {x: 6, z: 3, y: 0}, size: {x: 3, z:1, y: 1}},
+	{type: BuildingType.House, position: {x: 3, z: 1, y: 0}, size: {x: 1, z:1, y: 1}},
+	{type: BuildingType.House, position: {x: 3, z: 2, y: 0}, size: {x: 2, z:3, y: 2}},
+	{type: BuildingType.House, position: {x: 3, z: 3, y: 0}, size: {x: 1, z:1, y: 3}},
+	{type: BuildingType.House, position: {x: 3, z: 4, y: 0}, size: {x: 1, z:1, y: 4}},
 ].forEach(building => placeBuilding(building))
 
 //! ANIMATION LOOP
