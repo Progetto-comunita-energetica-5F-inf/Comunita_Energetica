@@ -15,12 +15,12 @@
     
     --color-dark: #1C1D20;
     --color-dark-dark: #141517;
-    --color-bg-light: #141517;
+    --color-bg-light: #545454cf;
     --color-light: #FFFFFF;
     --color-border: rgba(28, 29, 32, 0.175);
     --color-border-btn: rgba(255, 255, 255, 0.6);
     --color-text: #1C1D20;
-    --color-text-light: #e1e1e1;
+    --color-text-light: #eeeeee;
     --alert-error: #ff4444;
     --alert-success: #24C958;
 
