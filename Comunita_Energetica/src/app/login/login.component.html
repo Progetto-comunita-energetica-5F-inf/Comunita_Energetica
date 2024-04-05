@@ -1,36 +1,40 @@
-<section class="content" style="text-align: center">
+<section class="content">
     <header class="header">
-        <div class="titolo">
-            <h1>Login page</h1>
-            <h3>enter your login credentials</h3>
-        </div>
+       
     </header>
     <main class="main">
+        <div class="titolo">
+            <h1 class="scritteLogin">Login page</h1>
+            <h3 class="scritteLogin">enter your login credentials</h3>
+        </div>
+        <br>
         <div class="username">
-            <label for="Username">Username</label>
+            <label for="Username" class="scritteLogin" >Username</label>
             <br>
-            <input type="text"
+            <input type="text" class="modificaInput"
             id="Username"
             name="Username"
             placeholder="Enter your Username" required>
         </div>
+        <br>
         <div class="password">
-            <label for="password">Password</label>
+            <label for="password" class="scritteLogin" >Password</label>
             <br>
-            <input type="password"
+            <input type="password" class="modificaInput"
             id="password"
             name="password"
             placeholder="Enter your Password" required>
-            <br>
-            <button class="btn" onclick="">Conferma</button>
-            <button class="btn">Elimina</button>
+        </div>    
+        <br>
+        <div class="bottoniScelta">
+                <button class="btn" onclick="">Accedi</button>
+                
+                <button class="btn">Annulla</button>
+               
         </div>
+            <div class="btnNotregistered">
+                <h6 class="scritteLogin">create an account</h6>
+            </div>
+        
     </main>
-    <footer class="footer">
-        <div class="btnNotregistered">
-            <h6>create an account</h6>
-        </div>
-
-
-    </footer>
 </section>
