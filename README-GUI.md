@@ -1,1 +1,0 @@
-Questo è il file readme per la gui

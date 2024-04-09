@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Old+Persian&display=swap');
 
 /* ------------------------------------- */
 /* ?Basic Setup */
@@ -15,7 +15,7 @@
     
     --color-dark: #1C1D20;
     --color-dark-dark: #141517;
-    --color-bg-light: #545454cf;
+    --color-bg-light: #5f5f5fcf;
     --color-light: #FFFFFF;
     --color-border: rgba(28, 29, 32, 0.175);
     --color-border-btn: rgba(255, 255, 255, 0.6);
@@ -43,7 +43,7 @@
 html,
 body {
     color: var(--color-dark);
-    font-family: 'Gluten', cursive;
+    font-family: 'Noto Sans Old Persian', sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
