@@ -26,24 +26,68 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    width: 30%;
+    
 
 }
 
 /* !------TEXT------! */
 .scritteLogin{
     color: aliceblue;
-    font-size: 200%;
+    width: 100%;
+    font-size: 36px;
 }
 
-/* !------Buttons------! */
+.main > div:nth-child(1) h1{
+    font-size: 60px;
+}
+
+/* !------BUTTON------! */
 .btn{
     color: black;
     font-size: 160%;
+    width: 100%;
+  
 }
 
 /* !------INPUT------! */
-
 .modificaInput{
     border-color: brown;
+    width: 100%;
+    font-size: 100%;
+   
     
+}
+
+/* !------DIV------! */
+/* div{
+    border: var(--border-test);
+} */
+
+/* !------LINK------! */
+a:link,
+a:visited {
+    color: var(--color-text-light);
+    text-decoration: none;
+}
+
+.footer-link{
+    justify-content: space-around;
+    width: 100%;
+    display: flex;
+    margin-top: 3%;
+}
+
+.bottoniScelta .btn {
+    margin-bottom: 3%;
+}
+
+.annulla {
+    text-align: left;
+}
+
+.titolo,
+.username,
+.password{
+    text-align: left;
 }
