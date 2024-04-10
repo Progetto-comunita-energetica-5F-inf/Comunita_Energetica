@@ -2,9 +2,9 @@
     text-align: center; 
     width: 100dvw;
     height: 100dvh;
-    background-image: url(../../assets/login/painting-sunset-city-generative-ai-image_87646-22772.webp);
+    background-image: url(../../assets/login/minimal-background-pjjl8kholjuxp6sk.jpg);
     overflow-y: hidden;
-    background-size: cover;
+    background-size:cover;
 }
 .content::before{
     content: " ";
@@ -15,9 +15,8 @@
     width: 100dvw;
     height: 100dvh;
     background-color: var(--color-dark);
-    opacity: 0.6;
+    opacity: 0.4;
 }
-
 
 .main{
     position:absolute;
@@ -25,6 +24,9 @@
     left: 50%;
     transform: translate(-50%,-50%);
     width: 30%;
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 /* !------TEXT------! */
@@ -32,6 +34,9 @@
     color: aliceblue;
     width: 100%;
     font-size: 36px;
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .main > div:nth-child(1) h1{
@@ -43,14 +48,24 @@
     color: black;
     font-size: 160%;
     width: 100%;
-    font-family: 'Gluten', cursive;
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.footerbtn{
+    background-color: rgba(242, 245, 248, 0.137);
+    border-radius: 20px;
+    padding: 10px;
 }
 
 /* !------INPUT------! */
 .modificaInput{
     width: 100%;
-    font-size: 120%;
-    font-family: 'Gluten', cursive;
+    font-size: 100%;
+    font-family: "Barlow", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
 /* !------DIV------! */
@@ -74,6 +89,11 @@ a:visited {
 
 .bottoniScelta .btn {
     margin-bottom: 3%;
+    border-style: solid;
+    border-radius: 10px;
+    color: black ;
+    padding: 5px;
+    border-color: transparent;
 }
 
 .annulla {
@@ -87,3 +107,17 @@ a:visited {
 }
 
 
+input{
+    height: 40px;
+    background-color: rgba(250, 246, 246, 0.473);
+    border-style: solid;
+    border-radius: 10px;
+    padding-left: 20px;
+    color: black ;
+    padding: 5px;
+    border: 0px solid red;
+}
+
+input:focus {
+    outline: none;
+}
