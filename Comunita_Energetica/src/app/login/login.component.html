@@ -4,8 +4,8 @@
     </header>
     <main class="main">
         <div class="titolo">
-            <h1 class="scritteLogin">Login page</h1>
-            <h3 class="scritteLogin">enter your login credentials</h3>
+            <h1 class="scritteLogin">Accedi</h1>
+            
         </div>
         <br>
         <div class="username">
@@ -28,12 +28,19 @@
         <br>
         <div class="bottoniScelta">
                 <button class="btn" onclick="">Accedi</button>
-                
-                <button class="btn">Annulla</button>
+                <div class="annulla">
+                    <a routerLink="../landingPage" class="link-annulla">Annulla</a>
+                </div>
                
         </div>
-            <div class="btnNotregistered">
-                <h6 class="scritteLogin">create an account</h6>
+        <br>
+            <div class="footer-link">
+                <div style="text-align: left; width: 100%;">
+                    <a routerLink="../landingPage" class="footerbtn">Crea account</a>
+                </div>
+                <div style="text-align: right; width: 100%;">
+                    <a routerLink="../landingPage" class="footerbtn">Password dimenticata?</a>
+                </div>
             </div>
         
     </main>
