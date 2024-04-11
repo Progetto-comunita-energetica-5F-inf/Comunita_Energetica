@@ -29,11 +29,11 @@ h3 {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 75px;
 }
 
 h2 {
-    font-size: 35px;
+    font-size: 36px;
 }
 
 h3 {
@@ -73,12 +73,39 @@ a:active {
 .btn {
     cursor: pointer;
     padding: 2%;
-    font-family: 'Gluten', cursive;
+    font-family: "Tilt Neon", sans-serif;
+    letter-spacing: 0.1rem;
     border: none;
     border-radius: 10px;
     color: var(--color-text-light);
-    background-color: var(--color-dark);
+    background-color: var(--color-light-dark);
     transition: 0.4s;
+}
+
+.magneto {
+    display: flex;
+    cursor: pointer;
+    width: 10rem;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: black;
+}
+
+/* ------------------------------------- */
+/* ?LOADER? */
+/* ------------------------------------- */
+
+.loader-container {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: var(--color-dark-dark);
+    display: grid;
+    place-content: center;
 }
 
 /* ------------------------------------- */
@@ -94,6 +121,7 @@ a:active {
     background-image: url(../../assets/index/header-bg.webp);
     background-size: cover;
     overflow-y: hidden;
+    z-index: 0;
 }
 
 .header::before {
@@ -106,6 +134,7 @@ a:active {
     height: 100dvh;
     background-color: var(--color-dark);
     opacity: 0.5;
+    z-index: -1;
 }
 
 /* *navbar* */
@@ -119,7 +148,7 @@ a:active {
     align-items: center;
     justify-content: space-between;
     color: var(--color-text-light);
-    background-color: var(--color-bg-light);
+    /* background-color: var(--color-light-dark); */
     z-index: 999;
 }
 
@@ -180,7 +209,7 @@ a:active {
     display: block;
     height: fit-content;
     color: var(--color-text-light);
-    transform: translate(0, 110%);
+    transform: translateY(50%);
 }
 
 .menu > li:first-child > a {
@@ -202,14 +231,14 @@ a:active {
 }
 
 .menu li a span {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .menu > li > a > span {
     position: absolute;
-    top: 23%;
+    top: 50%;
     left: 100%;
-    transform: translate(-50%, 27%);
+    transform: translate(-50%, 50%);
     transition-duration: 0.5s;
 }
 
@@ -218,9 +247,7 @@ a:active {
 }
 
 .menu > li:first-child:hover > a > span {
-    top: 10%;
-    left: 107%;
-    transform: rotate3d(0, 0, 1, 180deg);
+    transform: rotate3d(0, 0, 1, 180deg) translate(50%, -50%);
 }
 
 .dropdown {
@@ -231,8 +258,9 @@ a:active {
     padding: 10px 10px;
     width: max-content;
     font-size: 22px;
-    background-color: var(--color-bg-light);
-    border-radius: 0 0 10px 10px;
+    background-color: var(--color-light);
+    border: 3px solid var(--color-border);
+    border-radius: 10px;
     list-style: none;
     opacity: 0;
     visibility: hidden;
@@ -261,7 +289,7 @@ a:active {
     position: relative;
     padding: 20px 30px;
     width: 100%;
-    color: var(--color-text-light);
+    /* color: var(--color-text-light); */
     border-radius: 10px;
     opacity: 0.7;
     transition: 0.15s ease-in-out;
@@ -328,30 +356,51 @@ a:active {
 .header-body {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 10%;
+    width: 40%;
     text-align: center;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
+}
+
+.slogan {
+    text-align: left;
 }
 
 .slogan h1 {
+    font-size: 85px;
     text-shadow: 3px 3px 5px var(--color-dark-dark);
-    line-height: 2.5rem;
+    letter-spacing: 4px;
+    line-height: 3rem;
 }
 
-.slogan h1 span {
-    letter-spacing: 0.1rem;
+.slogan h2 {
+    margin-top: 20px;
+    text-transform: none;
+    font-size: 48px;
+    font-weight: 300;
+}
+
+.slogan h2 span {
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.slogan h2 span:nth-child(1) {
+    background-color: var(--color-blue-green);
+}
+
+.slogan h2 span:nth-child(2) {
+    background-color: var(--alert-success);
 }
 
 .head-btn {
-    margin: 20px auto 0;
-    width: 60%;
+    margin-top: 25px;
 }
 
 .head-btn .btn {
     position: relative;
     padding: 2% 5%;
     overflow-y: hidden;
-    /* z-index: 0; */
 }
 
 /* .head-btn .btn::before {
@@ -371,28 +420,33 @@ a:active {
     border-radius: 100% / 70%;
 } */
 
-.sim,
-.sub-btn {
+.sub-btn,
+.secondary-btn {
     width: 100%;
-    justify-content: center;
+    height: fit-content;
 }
 
-.sim .btn,
-.sub-btn .btn {
-    width: 100%;
-    height: 60px;
+.secondary-btn {
+    justify-content: space-between;
 }
 
-.sub-btn {
-    margin: 0 auto;
-    width: fit-content;
-}
-
-.sim .btn {
-    margin-bottom: 10px;
+.sub-btn > .btn:first-child {
+    width: 100%; 
 }
 
 .sub-btn .btn {
-    margin: 10px 0;
+    margin: 5px 0;
+}
+
+.secondary-btn .btn {
+    width: 47.5%;
+}
+
+.secondary-btn .btn:nth-child(1) {
+    margin-right: 2.5%;
+}
+
+.secondary-btn .btn:nth-child(2) {
+    margin-left: 2.5%;
 }
 

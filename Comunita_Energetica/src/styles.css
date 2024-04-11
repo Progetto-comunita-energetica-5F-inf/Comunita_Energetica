@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Old+Persian&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
 
 /* ------------------------------------- */
 /* ?Basic Setup */
@@ -15,8 +15,9 @@
     
     --color-dark: #1C1D20;
     --color-dark-dark: #141517;
-    --color-bg-light: #5f5f5fcf;
-    --color-light: #FFFFFF;
+    --color-light-dark: #1a1c1fd0;
+    --color-bg-light: #5f5f5fe6;
+    --color-light: #ededed;
     --color-border: rgba(28, 29, 32, 0.175);
     --color-border-btn: rgba(255, 255, 255, 0.6);
     --color-text: #1C1D20;
@@ -43,12 +44,13 @@
 html,
 body {
     color: var(--color-dark);
-    font-family: 'Noto Sans Old Persian', sans-serif;
+    font-family: "Tilt Neon", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-variation-settings:
-    "slnt" 0;
+    "XROT" 0,
+    "YROT" 0;
     font-weight: 400;
     font-size: 20px;
     text-rendering: optimizeLegibility;
