@@ -50,13 +50,18 @@
     width: 100%;
     font-family: "Barlow", sans-serif;
     font-weight: 500;
-    font-style: normal;
+    font-style: normal; 
 }
 
 .footerbtn{
     background-color: rgba(242, 245, 248, 0.137);
     border-radius: 20px;
     padding: 10px;
+    border: 3px solid white;
+    
+}
+.footerbtn:hover{
+    background-color: rgba(243, 239, 239, 0.473);
 }
 
 /* !------INPUT------! */
@@ -91,10 +96,12 @@ a:visited {
     margin-bottom: 3%;
     border-style: solid;
     border-radius: 10px;
-    color: black ;
+    color: white ;
     padding: 5px;
-    border-color: transparent;
+    border: 3px solid white;
+    background-color: rgba(242, 245, 248, 0.137);
 }
+
 
 .annulla {
     text-align: left;
@@ -109,13 +116,22 @@ a:visited {
 
 input{
     height: 40px;
-    background-color: rgba(250, 246, 246, 0.473);
+    background-color: rgba(242, 245, 248, 0.137);
     border-style: solid;
     border-radius: 10px;
     padding-left: 20px;
-    color: black ;
+    color: white ;
     padding: 5px;
-    border: 0px solid red;
+    border-color: white;
+    border-width: 3px;
+}
+
+input:hover{
+    background-color: rgba(243, 239, 239, 0.473);
+}
+
+::placeholder{
+    color: white;
 }
 
 input:focus {
