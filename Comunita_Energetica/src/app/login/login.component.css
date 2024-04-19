@@ -152,3 +152,22 @@ iframe{
     left: 330px;
     top: 253px;
 }
+
+
+/* !------LOGO------! */
+
+.logo {
+    display: flex;
+    height: 70px;
+    align-items: center;
+}
+
+.logo .img {
+    height: 70px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.logo .img img {
+    height: 100%;
+}
