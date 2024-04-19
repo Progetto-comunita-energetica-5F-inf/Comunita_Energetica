@@ -1,0 +1,452 @@
+/* ------------------------------------- */
+/* ?Basic Setup */
+/* ------------------------------------- */
+
+.container {
+    margin: 0 auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    max-width: 100em;
+}
+
+.section {
+    display: block;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    position: relative;
+}
+
+/* ------------------------------------- */
+/* ?Resulable components? */
+/* ------------------------------------- */
+
+/* !------Headings------! */
+h1,
+h2,
+h3 {
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 26px;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+/* !------Paragraphs------! */
+
+/* !------Links------! */
+
+a:link,
+a:visited {
+    color: var(--color-dark);
+    text-decoration: none;
+}
+
+/* a:hover,
+a:active {
+    
+} */
+
+/* !------Icons------! */
+
+/* !------Images------! */
+
+.responsive-img {
+    max-width: 100%; /* Larghezza massima sarà il 100% del contenitore padre */
+    height: auto; /* Mantiene l'aspetto originale dell'immagine */
+}
+
+/* !------Buttons------! */
+
+.btn {
+    cursor: pointer;
+    padding: 2%;
+    font-family: "Tilt Neon", sans-serif;
+    letter-spacing: 0.1rem;
+    border: none;
+    border-radius: 10px;
+    color: var(--color-text-light);
+    background-color: var(--color-light-dark);
+    transition: 0.4s;
+}
+
+.magneto {
+    display: flex;
+    cursor: pointer;
+    width: 10rem;
+    height: 10rem;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    background-color: black;
+}
+
+/* ------------------------------------- */
+/* ?LOADER? */
+/* ------------------------------------- */
+
+.loader-container {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: var(--color-dark-dark);
+    display: grid;
+    place-content: center;
+}
+
+/* ------------------------------------- */
+/* ?HEADER? */
+/* ------------------------------------- */
+
+.header {
+    position: relative;
+    width: 100dvw;
+    height: 100dvh;
+    font-size: 22px;
+    color: var(--color-text-light);
+    background-image: url(../../assets/index/header-bg.webp);
+    background-size: cover;
+    overflow-y: hidden;
+    z-index: 0;
+}
+
+.header::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: var(--color-dark);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* *navbar* */
+.nav-bar {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 70px;
+    padding: 0 20px;
+    font-size: 26px;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-text-light);
+    /* background-color: var(--color-light-dark); */
+    z-index: 999;
+}
+
+.logo {
+    display: flex;
+    height: 70px;
+    align-items: center;
+}
+
+.logo .img {
+    height: 70px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.logo .img img {
+    height: 100%;
+}
+
+.logo a {
+    margin-left: 10px;
+    color: var(--color-text-light);
+}
+
+.nav-list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    height: fit-content;
+    transform: translate(-50%, -50%);
+}
+
+.menu {
+    display: flex;
+    height: 70px;    
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu > li {
+    display: inline-block;
+    height: 70px;
+}
+
+.menu li:first-child {
+    white-space: nowrap;
+}
+
+.menu hr {
+    height: 40%;
+    border: 2px solid var(--color-light);
+    border-radius: 50%;
+}
+
+.menu > li > a {
+    display: block;
+    height: fit-content;
+    color: var(--color-text-light);
+    transform: translateY(50%);
+}
+
+.menu > li:first-child > a {
+    position: relative;
+    cursor: default;
+}
+
+.menu li a::after {
+    display: block;
+    content: " ";
+    width: 0;
+    height: 2px;
+    background-color: var(--color-light);
+    transition: 0.8s;
+}
+
+.menu li a:hover::after {
+    width: 100%;
+}
+
+.menu li a span {
+    font-size: 18px;
+}
+
+.menu > li > a > span {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, 50%);
+    transition-duration: 0.5s;
+}
+
+.menu > li:first-child > a > span {
+    rotate: 180deg;
+}
+
+.menu > li:first-child:hover > a > span {
+    transform: rotate3d(0, 0, 1, 180deg) translate(50%, -50%);
+}
+
+.dropdown {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: -13%;
+    padding: 10px 10px;
+    width: max-content;
+    font-size: 22px;
+    background-color: var(--color-light);
+    border: 3px solid var(--color-border);
+    border-radius: 10px;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-1rem);
+    transition-property: opacity, visibility, transform;
+    transition: 0.2s ease-in-out;
+}
+
+.dropdown li {
+    display: block;
+    width: 330px;
+}
+
+.menu li:first-child a:hover::after {
+    width: 0;
+}
+
+.menu li:first-child:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.dropdown li a {
+    display: flex;
+    position: relative;
+    padding: 20px 30px;
+    width: 100%;
+    /* color: var(--color-text-light); */
+    border-radius: 10px;
+    opacity: 0.7;
+    transition: 0.15s ease-in-out;
+}
+
+.dropdown li a span {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    font-size: 24px;
+    color: var(--color-prussian-blue);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50%);
+    transition: 0.15s ease-in-out;
+}
+
+.dropdown li a:hover {
+    padding-left: 12%;
+    background-color: var(--color-ut-orange);
+    opacity: 1;
+}
+
+.dropdown li a:hover span {
+    right: 10%;
+    opacity: 1;
+    visibility: visible;
+}
+
+.access {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    list-style: none;
+}
+
+.access li a {
+    position: relative;
+    padding: 10px 20px;
+    color: var(--color-text-light);
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.access li a::after {
+    content: " ";
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50px;
+    background-color: var(--color-light);
+    transition: 0.2s;
+}
+
+.access li a:hover::after {
+    width: 5px;
+    height: 5px;
+}
+
+/* *header body* */
+
+.header-body {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    width: 40%;
+    text-align: center;
+    transform: translateY(-50%);
+}
+
+.slogan {
+    text-align: left;
+}
+
+.slogan h1 {
+    font-size: 85px;
+    text-shadow: 3px 3px 5px var(--color-dark-dark);
+    letter-spacing: 4px;
+    line-height: 3rem;
+}
+
+.slogan h2 {
+    margin-top: 20px;
+    text-transform: none;
+    font-size: 48px;
+    font-weight: 300;
+}
+
+.slogan h2 span {
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+.slogan h2 span:nth-child(1) {
+    background-color: var(--color-blue-green);
+}
+
+.slogan h2 span:nth-child(2) {
+    background-color: var(--alert-success);
+}
+
+.head-btn {
+    margin-top: 25px;
+}
+
+.head-btn .btn {
+    position: relative;
+    padding: 2% 5%;
+    overflow-y: hidden;
+}
+
+/* .head-btn .btn::before {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--color-sky-blue);
+    transition: 0.35s ease-in-out;
+    z-index: -1;
+}
+
+.head-btn .btn:hover::before {
+    top: -100%;
+    border-radius: 100% / 70%;
+} */
+
+.sub-btn,
+.secondary-btn {
+    width: 100%;
+    height: fit-content;
+}
+
+.secondary-btn {
+    justify-content: space-between;
+}
+
+.sub-btn > .btn:first-child {
+    width: 100%; 
+}
+
+.sub-btn .btn {
+    margin: 5px 0;
+}
+
+.secondary-btn .btn {
+    width: 47.5%;
+}
+
+.secondary-btn .btn:nth-child(1) {
+    margin-right: 2.5%;
+}
+
+.secondary-btn .btn:nth-child(2) {
+    margin-left: 2.5%;
+}
+
