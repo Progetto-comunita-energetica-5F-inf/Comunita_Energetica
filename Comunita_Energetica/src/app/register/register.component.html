@@ -1,1 +1,57 @@
-<p>register works!</p>
+<section class="content">
+    <header class="header">
+        <div class="logo">
+            <div class="img">
+                <a routerLink="../landingPage" class="img"> <img src="../assets/login/Catturalogo.png"></a>
+            </div>
+        </div>    
+    </header>
+    <main class="main">
+        <div class="titolo">
+            <h1 class="scritteLogin">Crea account</h1>
+            
+        </div>
+        <br>
+        <div class="username">
+            <label for="Username" class="scritteLogin" >Nome</label>
+            <br>
+            <input type="text" class="modificaInput"
+            id="Username"
+            name="Username"
+            placeholder="Inserisci nome" required>
+        </div>
+        <br>
+        <div class="password">
+            <label for="password" class="scritteLogin" >Cognome</label>
+            <br>
+            <input type="password" class="modificaInput"
+            id="password"
+            name="password"
+            placeholder="Inserisci cognome" required>
+        </div>    
+        <br>
+        <div class="inserisciData">
+            <h4 class="scritteLogin">Data di nascita</h4>
+            <input type="date" id="date" class="inputData">
+
+        </div>
+        <br>
+        <div class="bottoniScelta">
+                <button class="btn" onclick="">Avanti <iframe src="https://lottie.host/embed/e0a3efbd-1959-48c6-965a-93c8cddfe55d/A4FCUkPtMV.json"></iframe></button>
+                <div class="annulla">
+                    <a routerLink="../landingPage" class="link-annulla">Annulla</a>
+                </div>
+               
+        </div>
+        <br>
+            <div class="footer-link">
+                <div style="text-align: left; width: 100%;">
+                    <a routerLink="../landingPage" class="footerbtn">Crea account</a>
+                </div>
+                <div style="text-align: right; width: 100%;">
+                    <a routerLink="../landingPage" class="footerbtn">Password dimenticata?</a>
+                </div>
+            </div>
+        
+    </main>
+</section>
