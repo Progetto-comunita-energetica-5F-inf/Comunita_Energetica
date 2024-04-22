@@ -170,4 +170,5 @@ iframe{
 
 .logo .img img {
     height: 100%;
+    opacity: 0.5;
 }
