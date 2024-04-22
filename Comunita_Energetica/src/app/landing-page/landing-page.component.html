@@ -11,7 +11,9 @@
                 <div class="img">
                     <img src="../assets/resumable/logo.jpg">
                 </div>
-                <a href=""><span>EnergyHub</span></a>
+                <a href="">
+                    <span>EnergyHub</span>
+                </a>
             </div>
 
             <div class="nav-list">
@@ -58,15 +60,16 @@
             </div>
             <div class="head-btn">
                 <div class="sub-btn">
-                    <button class="btn">
-                        <h2 class="text">Simulazione</h2>
+                    <button class="btn" id="btnSimHeader" (mouseenter)="activateHover()" (mouseleave)="resetHover()">
+                        <h2>Simulazione</h2>
+                        <div class="hover-circle"></div>
                     </button>
 
                     <div class="secondary-btn">
-                        <button class="btn">
+                        <button class="btn" id="btnMercatoHeader">
                             <h3>Mercato</h3>
                         </button>
-                        <button class="btn">
+                        <button class="btn" id="btnCommunityHeader">
                             <h3>Community</h3>
                         </button>
                     </div>
@@ -75,9 +78,15 @@
         </div>
     </header>
 
+    <magnetic [magnetoId]="'test'">
+        <span class="text" #content>test</span>
+    </magnetic>
+
     <!-- !FOOTER! -->
     <footer class="footer">
-
+        <magnetic [magnetoId]="'test2'">
+            <span class="text" #content>test2</span>
+        </magnetic>
     </footer>
 </section>
 

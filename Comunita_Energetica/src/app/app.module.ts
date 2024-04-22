@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { ButtonComponent } from './resumable/button/button.component';
+import { MagneticComponent } from './resumable/magnetic/magnetic.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    ButtonComponent,
+    MagneticComponent
   ],
   imports: [
     BrowserModule,
