@@ -38,55 +38,62 @@
             </div>
             
             <div class="access">
-                <div class="sing-in">
+                <magnetic class="sing-in">
                     <li class="magneto-text" id="login-span">
                         <a routerLink="../login"><span>Login</span></a>
                     </li>
-                </div>
-                <div class="sing-up">
+                </magnetic>
+                <magnetic class="sing-up">
                     <li class="magneto-text" id="register-span">
                         <a routerLink="../register"><span>Registrati</span></a>
                     </li>
-                </div>
+                </magnetic>
             </div>
         </nav>
 
         <!-- <nav class="fixed-nav"></nav> -->
 
-        <div class="header-body">
+        <section class="header-body">
             <div class="slogan">
                 <h1>Energyhub</h1>
                 <h2><span>Energia</span> e <span>Innovazione</span></h2>
             </div>
+
             <div class="head-btn">
                 <div class="sub-btn">
-                    <button class="btn" id="btnSimHeader" (mouseenter)="activateHover()" (mouseleave)="resetHover()">
-                        <h2>Simulazione</h2>
-                        <div class="hover-circle"></div>
-                    </button>
+                    <div class="primary-btn">
+                        <magnetic>
+                            <hover-button>
+                                <h2 #content>Simulazione</h2>
+                            </hover-button>
+                        </magnetic>
+                    </div>
 
                     <div class="secondary-btn">
-                        <button class="btn" id="btnMercatoHeader">
-                            <h3>Mercato</h3>
-                        </button>
-                        <button class="btn" id="btnCommunityHeader">
-                            <h3>Community</h3>
-                        </button>
+                        <magnetic>
+                            <hover-button>
+                                <h3 #content>Mercato</h3>
+                            </hover-button>
+                        </magnetic>
+                        
+                        <magnetic>
+                            <hover-button>
+                                <h3 #content>Community</h3>
+                            </hover-button>
+                        </magnetic>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="head3dcontainer">
+            <canvas class="head3d" #canvas></canvas>
+        </section>
     </header>
 
-    <magnetic [magnetoId]="'test'">
-        <span class="text" #content>test</span>
-    </magnetic>
-
+    
     <!-- !FOOTER! -->
     <footer class="footer">
-        <magnetic [magnetoId]="'test2'">
-            <span class="text" #content>test2</span>
-        </magnetic>
     </footer>
 </section>
 

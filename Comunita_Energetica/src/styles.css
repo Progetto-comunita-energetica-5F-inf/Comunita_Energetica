@@ -17,8 +17,8 @@
     --color-dark-dark: #141517;
     --color-light-dark: #1a1c1fd0;
     --color-bg-light: #5f5f5fe6;
-    --color-light: #ededed;
-    --color-border: rgba(28, 29, 32, 0.175);
+    --color-light: #fdfeff;
+    --color-border: rgba(153, 153, 154, 0.911);
     --color-border-btn: rgba(255, 255, 255, 0.6);
     --color-text: #1C1D20;
     --color-text-light: #eeeeee;
@@ -44,6 +44,7 @@
 html,
 body {
     color: var(--color-dark);
+    background-color: var(--color-dark);
     font-family: "Tilt Neon", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -51,13 +52,11 @@ body {
     font-variation-settings:
     "XROT" 0,
     "YROT" 0;
-    font-weight: 400;
     font-size: 20px;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
     scrollbar-width: none;
     scroll-behavior: smooth;
     cursor: default;
-    
 }
 

@@ -84,16 +84,6 @@ a:active {
     z-index: 0;
 }
 
-.hover-circle {
-    position: absolute;
-    top: 100%;
-    width: 100%;
-    height: 300%;
-    border-radius: 50%;
-    background-color: var(--color-lapis-lazull);
-    z-index: -1;
-}
-
 /* ------------------------------------- */
 /* ?LOADER? */
 /* ------------------------------------- */
@@ -116,14 +106,15 @@ a:active {
     width: 100dvw;
     height: 100dvh;
     font-size: 22px;
-    color: var(--color-text-light);
-    background-image: url(../../assets/index/header-bg.webp);
-    background-size: cover;
+    color: var(--color-text);
+    background: linear-gradient(45deg, #f3b0a4 0%, #f4bdb4 5%, rgba(255, 255, 255) 15%, rgba(255, 255, 255,1) 100%);
+    /* background-image: url(../../assets/index/header-bg.webp);
+    background-size: cover; */
     overflow-y: hidden;
     z-index: 0;
 }
 
-.header::before {
+/* .header::before {
     content: " ";
     display: block;
     position: absolute;
@@ -134,7 +125,7 @@ a:active {
     background-color: var(--color-dark);
     opacity: 0.5;
     z-index: -1;
-}
+} */
 
 /* *navbar* */
 .nav-bar {
@@ -146,7 +137,7 @@ a:active {
     font-size: 26px;
     align-items: center;
     justify-content: space-between;
-    color: var(--color-text-light);
+    color: var(--color-text);
     /* background-color: var(--color-light-dark); */
     z-index: 999;
 }
@@ -171,7 +162,7 @@ a:active {
     display: flex;
     position: relative;
     margin-left: 10px;
-    color: var(--color-text-light);
+    color: var(--color-text);
 }
 
 .nav-list {
@@ -209,7 +200,7 @@ a:active {
 .menu > li > a {
     display: block;
     height: fit-content;
-    color: var(--color-text-light);
+    color: var(--color-text);
     transform: translateY(50%);
 }
 
@@ -223,7 +214,7 @@ a:active {
     content: " ";
     width: 0;
     height: 2px;
-    background-color: var(--color-light);
+    background-color: var(--color-text);
     transition: 0.8s;
 }
 
@@ -290,7 +281,7 @@ a:active {
     position: relative;
     padding: 20px 30px;
     width: 100%;
-    /* color: var(--color-text-light); */
+    /* color: var(--color-text); */
     border-radius: 10px;
     opacity: 0.7;
     transition: 0.15s ease-in-out;
@@ -330,7 +321,7 @@ a:active {
 .access li a {
     position: relative;
     padding: 10px 20px;
-    color: var(--color-text-light);
+    color: var(--color-text);
     border-radius: 10px;
     transition: 0.5s;
 }
@@ -343,7 +334,7 @@ a:active {
     width: 0;
     height: 0;
     border-radius: 50px;
-    background-color: var(--color-light);
+    background-color: var(--color-text);
     transition: 0.2s;
 }
 
@@ -365,7 +356,7 @@ a:active {
 
 .slogan {
     text-align: left;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
     width: fit-content;
 }
 
@@ -400,33 +391,34 @@ a:active {
     margin-top: 25px;
 }
 
-.sub-btn,
-.secondary-btn {
-    width: 100%;
-    height: fit-content;
+.head-btn hover-button h2,
+.head-btn hover-button h3 {
+    color: var(--color-text);
+}
+
+.primary-btn {
+    margin-bottom: 20px;
 }
 
 .secondary-btn {
+    display: flex;
     justify-content: space-between;
 }
 
-.sub-btn > .btn:first-child {
-    width: 100%; 
+.secondary-btn magnetic {
+    width: 45%;
 }
 
-.sub-btn .btn {
-    margin: 5px 0;
+.head3dcontainer {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    width: 50%;
+    height: 100%;
+    transform: scale(70%) translateY(-70%);
 }
 
-.secondary-btn .btn {
-    width: 47.5%;
+.head3d {
+    border-radius: 50%;
+    box-shadow: 0 0 7rem #f3b0a4;
 }
-
-.secondary-btn .btn:nth-child(1) {
-    margin-right: 2.5%;
-}
-
-.secondary-btn .btn:nth-child(2) {
-    margin-left: 2.5%;
-}
-

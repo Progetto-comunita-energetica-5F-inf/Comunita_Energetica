@@ -1,1 +1,4 @@
-<p>button works!</p>
+<div class="btn" (mouseenter)="activateHover()" (mouseleave)="resetHover()">
+    <ng-content></ng-content>
+    <div class="hover-circle" #hoverElement></div>
+</div>
