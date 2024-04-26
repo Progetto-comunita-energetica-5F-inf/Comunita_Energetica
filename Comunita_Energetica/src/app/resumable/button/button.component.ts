@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ContentChild, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import gsap from 'gsap';
 
 @Component({
@@ -10,6 +10,7 @@ import gsap from 'gsap';
 export class ButtonComponent implements OnInit {
     @ContentChild('content', { static: true }) content!: ElementRef;
     @ViewChild('hoverElement', { static: true }) hoverRef!: ElementRef;
+    @Input() className: string = '';
 
     timeline!: gsap.core.Timeline;
     timeoutId = setTimeout(() => {}, 300);
@@ -21,8 +22,8 @@ export class ButtonComponent implements OnInit {
     moveHover = () => {
         this.timeline = gsap.timeline({paused:true});
         this.timeline
-        .to(this.hoverRef.nativeElement, {top: "-100%", width: "150%", translateX: "-17.5%", duration: 0.4, ease: "power3.in"}, "enter")
-        .to(this.hoverRef.nativeElement, {top: "-300%", width: "125%", translateX: "-10%", duration: 0.25}, "exit");
+        .to(this.hoverRef.nativeElement, {top: "-25%", width: "150%", duration: 0.4, ease: "power3.in"}, "enter")
+        .to(this.hoverRef.nativeElement, {top: "-150%", width: "125%", duration: 0.25}, "exit");
     }
     
     activateHover = () => {

@@ -8,17 +8,17 @@ import gsap, { Power4, Elastic } from 'gsap';
 })
 
 export class MagneticComponent implements OnInit {
-    @ContentChild('content', { static: true }) content!: ElementRef;
+    @Input() content!: ElementRef;
     @ViewChild('magneto', { static: true }) magneto!: ElementRef;
 
     ngOnInit(): void {
         this.moveButton();
     }
-    
+
     moveButton = () => {
         const activateMagneto = (event: MouseEvent) => {
             let boundBox = this.magneto.nativeElement.getBoundingClientRect(); // Gets position on the page along with the width and height
-            let magnetoStrength: number = 50;
+            let magnetoStrength: number = 0;
             let magnetoTextStrength: number = 0;
 
             if (this.magneto.nativeElement.height > 70) {

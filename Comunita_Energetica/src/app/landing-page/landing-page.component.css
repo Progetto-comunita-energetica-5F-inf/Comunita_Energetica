@@ -29,6 +29,7 @@ h3 {
 }
 
 h1 {
+    font-family: "Anton", sans-serif;
     font-size: 75px;
 }
 
@@ -68,22 +69,6 @@ a:active {
     height: auto; /* Mantiene l'aspetto originale dell'immagine */
 }
 
-/* !------Buttons------! */
-
-.btn {
-    position: relative;
-    cursor: pointer;
-    font-family: "Tilt Neon", sans-serif;
-    width: 100%;
-    padding: 10px 0;
-    border: none;
-    border-radius: 50px;
-    color: var(--color-text-light);
-    background-color: var(--color-light-dark);
-    overflow: hidden;
-    z-index: 0;
-}
-
 /* ------------------------------------- */
 /* ?LOADER? */
 /* ------------------------------------- */
@@ -107,10 +92,10 @@ a:active {
     height: 100dvh;
     font-size: 22px;
     color: var(--color-text);
-    background: linear-gradient(45deg, #f3b0a4 0%, #f4bdb4 5%, rgba(255, 255, 255) 15%, rgba(255, 255, 255,1) 100%);
+    /* background: linear-gradient(45deg, #f3b0a4 0%, #f4bdb4 5%, rgba(255, 255, 255) 15%, rgba(255, 255, 255,1) 100%); */
     /* background-image: url(../../assets/index/header-bg.webp);
     background-size: cover; */
-    overflow-y: hidden;
+    overflow: hidden;
     z-index: 0;
 }
 
@@ -127,6 +112,16 @@ a:active {
     z-index: -1;
 } */
 
+/* *3d model* */
+.head3dcontainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150dvw;
+    height: 100dvh;
+    z-index: -3;
+}
+
 /* *navbar* */
 .nav-bar {
     display: flex;
@@ -138,38 +133,51 @@ a:active {
     align-items: center;
     justify-content: space-between;
     color: var(--color-text);
-    /* background-color: var(--color-light-dark); */
-    z-index: 999;
+    z-index: 1;
 }
 
-.logo {
+.logo{
     display: flex;
-    height: 70px;
-    align-items: center;
-}
+    cursor: pointer;
 
-.logo .img {
-    height: 70px;
-    border-radius: 50px;
-    overflow: hidden;
-}
-
-.logo .img img {
-    height: 100%;
-}
-
-.logo a {
-    display: flex;
-    position: relative;
-    margin-left: 10px;
-    color: var(--color-text);
+    .name{
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        p {
+            position: relative;
+            transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+        .hidden-text {
+            display: flex;
+            position: absolute;
+            left: 100%;
+            transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+            p {
+                padding-left: 0.3em;
+            }
+        }
+    }
+    
+    &:hover {
+        .name {
+            padding-right: 100px;
+            .Energyhub {
+                transform: translateX(-100%);
+            }
+            .hidden-text {
+                transform: translateX(-100%);
+            }
+        }
+    }
 }
 
 .nav-list {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 30%;
+    width: 25%;
     height: fit-content;
     transform: translate(-50%, -50%);
 }
@@ -191,16 +199,9 @@ a:active {
     white-space: nowrap;
 }
 
-.menu hr {
-    height: 40%;
-    border: 2px solid var(--color-light);
-    border-radius: 50%;
-}
-
 .menu > li > a {
     display: block;
     height: fit-content;
-    color: var(--color-text);
     transform: translateY(50%);
 }
 
@@ -228,7 +229,7 @@ a:active {
 
 .menu > li > a > span {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 100%;
     transform: translate(-50%, 50%);
     transition-duration: 0.5s;
@@ -239,7 +240,7 @@ a:active {
 }
 
 .menu > li:first-child:hover > a > span {
-    transform: rotate3d(0, 0, 1, 180deg) translate(50%, -50%);
+    transform: rotate3d(0, 0, 1, 180deg) translate(50%, -40%);
 }
 
 .dropdown {
@@ -250,7 +251,7 @@ a:active {
     padding: 10px 10px;
     width: max-content;
     font-size: 22px;
-    background-color: var(--color-light);
+    background-color: var(--color-skin);
     border: 3px solid var(--color-border);
     border-radius: 10px;
     list-style: none;
@@ -281,7 +282,7 @@ a:active {
     position: relative;
     padding: 20px 30px;
     width: 100%;
-    /* color: var(--color-text); */
+    letter-spacing: 0.7px;
     border-radius: 10px;
     opacity: 0.7;
     transition: 0.15s ease-in-out;
@@ -321,7 +322,6 @@ a:active {
 .access li a {
     position: relative;
     padding: 10px 20px;
-    color: var(--color-text);
     border-radius: 10px;
     transition: 0.5s;
 }
@@ -343,6 +343,56 @@ a:active {
     height: 5px;
 }
 
+/* *mini nav* */
+.fixed-nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100dvh;
+    background-color: var(--color-dark);
+    z-index: 998;
+}
+
+.headerButtonContainer{
+    transform: scale(0);
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 4;
+    
+    .burger {
+        width: 100%;
+        &::after, &::before {
+            content: "";
+            display: block;
+            width: 40%;
+            background-color: var(--color-light);
+            height: 2px;
+            margin: auto;
+            position: relative;
+            transition: 0.3s ease-in-out;
+        }
+        &::after {
+            top: -5px;
+        }
+        &::before {
+            top: 5px;
+        }
+    }
+    
+    .burgerActive {
+        &::after {
+            top: -1px;
+            transform: rotate(45deg);
+        }
+        &::before {
+            top: 1px;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
 /* *header body* */
 
 .header-body {
@@ -356,13 +406,12 @@ a:active {
 
 .slogan {
     text-align: left;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     width: fit-content;
 }
 
 .slogan h1 {
     font-size: 85px;
-    text-shadow: 3px 3px 5px var(--color-dark-dark);
     letter-spacing: 4px;
     line-height: 3rem;
 }
@@ -405,20 +454,30 @@ a:active {
     justify-content: space-between;
 }
 
-.secondary-btn magnetic {
+.secondary-btn hover-button {
     width: 45%;
 }
 
-.head3dcontainer {
+/* *arrow* */
+.arrow-down {
+    display: flex;
     position: absolute;
-    top: 50%;
-    right: 0%;
-    width: 50%;
-    height: 100%;
-    transform: scale(70%) translateY(-70%);
+    bottom: 30px;
+    right: 40px;
 }
 
-.head3d {
-    border-radius: 50%;
-    box-shadow: 0 0 7rem #f3b0a4;
+.arrow-down span {
+    font-weight: 600;
 }
+
+.arrow-down iframe {
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+/* ------------------------------------- */
+/* ?MAIN? */
+/* ------------------------------------- */
+
+main {height: 100vh; background-color: var(--color-light);}

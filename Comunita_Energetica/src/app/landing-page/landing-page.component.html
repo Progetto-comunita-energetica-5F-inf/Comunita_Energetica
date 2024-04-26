@@ -6,14 +6,22 @@
 <section class="content">
     <!-- !HEADER! -->
     <header class="header">
+        <!-- ?BACKGROUND? -->
+        <section class="head3dcontainer">
+            <canvas class="head3d" #canvas></canvas>
+        </section>
+
+        <!-- ?NAV BAR? -->
         <nav class="nav-bar">
             <div class="logo">
-                <div class="img">
-                    <img src="../assets/resumable/logo.jpg">
+                <div class="name">
+                    <p class="Energyhub">Energyhub</p>
+                    <div class="hidden-text">
+                        <p class="benvenuti">Benvenuti</p>
+                        <p class="nel">nel</p>
+                        <p class="fururo">futuro</p>
+                    </div>
                 </div>
-                <a href="">
-                    <span>EnergyHub</span>
-                </a>
             </div>
 
             <div class="nav-list">
@@ -26,13 +34,9 @@
                             <li><a href="">Mercato Energia<span>&#8594;</span></a></li>
                         </ul>
                     </li>
-                    
-                    <hr>
-                    
-                    <li><a href="#">FAQ</a></li>
-                    
-                    <hr>
-                    
+                                        
+                    <li><a href="#">FAQ</a></li>                    
+
                     <li><a href="#">Contatti</a></li>
                 </ul>
             </div>
@@ -50,9 +54,18 @@
                 </magnetic>
             </div>
         </nav>
+        
+        <!-- ?BURGER? -->
+        <div class="headerButtonContainer" #burger>
+            <hover-button [className]="'button'" (click)="toggleBurger()">
+                <div class="burger" [class.burgerActive]="isBurgerActive" #content></div>
+            </hover-button>
+        </div>
+        
+        <!-- <div class="fixed-nav">
+        </div> -->
 
-        <!-- <nav class="fixed-nav"></nav> -->
-
+        <!-- ?MAIN CONTENT HEADER? -->
         <section class="header-body">
             <div class="slogan">
                 <h1>Energyhub</h1>
@@ -62,35 +75,38 @@
             <div class="head-btn">
                 <div class="sub-btn">
                     <div class="primary-btn">
-                        <magnetic>
-                            <hover-button>
-                                <h2 #content>Simulazione</h2>
-                            </hover-button>
-                        </magnetic>
+                        <hover-button [className]="'btn'">
+                            <h2 #content>Simulazione</h2>
+                        </hover-button>
                     </div>
 
                     <div class="secondary-btn">
-                        <magnetic>
-                            <hover-button>
-                                <h3 #content>Mercato</h3>
-                            </hover-button>
-                        </magnetic>
+                        <hover-button [className]="'btn'">
+                            <h3 #content>Mercato</h3>
+                        </hover-button>
                         
-                        <magnetic>
-                            <hover-button>
-                                <h3 #content>Community</h3>
-                            </hover-button>
-                        </magnetic>
+                        <hover-button [className]="'btn'">
+                            <h3 #content>Community</h3>
+                        </hover-button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="head3dcontainer">
-            <canvas class="head3d" #canvas></canvas>
+        <!-- ?BOTTOM RIGHT TEXT? -->
+        <section class="arrow-down">
+            <span>Esplora</span>
+            <iframe src="https://lottie.host/embed/bae84126-51f6-470d-b566-a7caab9ae8dc/kx5zSKY3o6.json"></iframe>
         </section>
     </header>
 
+    <!-- !MAIN! -->
+    <main>
+        <!-- ?TOP SIM? -->
+        <section class="top-sim">
+
+        </section>
+    </main>
     
     <!-- !FOOTER! -->
     <footer class="footer">

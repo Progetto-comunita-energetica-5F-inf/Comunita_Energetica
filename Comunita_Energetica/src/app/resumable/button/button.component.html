@@ -1,4 +1,6 @@
-<div class="btn" (mouseenter)="activateHover()" (mouseleave)="resetHover()">
-    <ng-content></ng-content>
-    <div class="hover-circle" #hoverElement></div>
-</div>
+<magnetic [content]="content">
+    <div [class]="className" (mouseenter)="activateHover()" (mouseleave)="resetHover()">
+        <ng-content></ng-content>
+        <div class="hover-circle" #hoverElement></div>
+    </div>
+</magnetic>
