@@ -17,7 +17,7 @@
 }
 
 /* ------------------------------------- */
-/* ?Resulable components? */
+/* ?REUSABLE COMPONENTS? */
 /* ------------------------------------- */
 
 /* !------Headings------! */
@@ -34,18 +34,50 @@ h1 {
 }
 
 h2 {
-    font-size: 36px;
+    font-family: "Anton", sans-serif;
+    font-size: 46px;
 }
 
 h3 {
-    font-size: 26px;
+    font-size: 38px;
 }
 
 h4 {
-    font-size: 22px;
+    font-size: clamp(1.55em, 2.3vw, 2.5em);
+    font-weight: 400;
 }
 
-/* !------Paragraphs------! */
+/* !------OnScroll------! */
+.hidden-para {
+    opacity: 0;
+    visibility: 0;
+    transition: .6s ease-in-out;
+    transform: translateX(-5%);
+}
+
+.active-para {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0%);
+}
+
+.hidden-title {
+    opacity: 0;
+    visibility: 0;
+    transition: 1s ease-in-out;
+    transition-delay: .2s;
+    transform: translateY(-80%);
+}
+
+.active-title {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+}
+
+.animatedText {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
 
 /* !------Links------! */
 
@@ -60,13 +92,56 @@ a:active {
     
 } */
 
-/* !------Icons------! */
-
 /* !------Images------! */
 
 .responsive-img {
     max-width: 100%; /* Larghezza massima sarà il 100% del contenitore padre */
     height: auto; /* Mantiene l'aspetto originale dell'immagine */
+}
+
+/* ------------------------------------- */
+/* ?DIVIDER? */
+/* ------------------------------------- */
+
+.description-divider-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.description-divider-top svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 50px;
+}
+
+.description-divider-top .shape-fill {
+    fill: #F4B9AF;
+}
+
+.bottom-sim-divider-bottom {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.bottom-sim-divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 50px;
+}
+
+.bottom-sim-divider-bottom .shape-fill {
+    fill: #1C1D20;
 }
 
 /* ------------------------------------- */
@@ -76,7 +151,7 @@ a:active {
 .loader-container {
     position: fixed;
     inset: 0;
-    z-index: 999;
+    z-index: 1000;
     background-color: var(--color-dark-dark);
     display: grid;
     place-content: center;
@@ -90,27 +165,13 @@ a:active {
     position: relative;
     width: 100dvw;
     height: 100dvh;
-    font-size: 22px;
-    color: var(--color-text);
-    /* background: linear-gradient(45deg, #f3b0a4 0%, #f4bdb4 5%, rgba(255, 255, 255) 15%, rgba(255, 255, 255,1) 100%); */
-    /* background-image: url(../../assets/index/header-bg.webp);
-    background-size: cover; */
+    font-family: "Bebas Neue", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     overflow: hidden;
     z-index: 0;
 }
-
-/* .header::before {
-    content: " ";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100dvw;
-    height: 100dvh;
-    background-color: var(--color-dark);
-    opacity: 0.5;
-    z-index: -1;
-} */
 
 /* *3d model* */
 .head3dcontainer {
@@ -132,7 +193,6 @@ a:active {
     font-size: 26px;
     align-items: center;
     justify-content: space-between;
-    color: var(--color-text);
     z-index: 1;
 }
 
@@ -252,7 +312,7 @@ a:active {
     width: max-content;
     font-size: 22px;
     background-color: var(--color-skin);
-    border: 3px solid var(--color-border);
+    border: 3px solid var(--color-text);
     border-radius: 10px;
     list-style: none;
     opacity: 0;
@@ -359,7 +419,7 @@ a:active {
     position: fixed;
     top: 40px;
     right: 40px;
-    z-index: 4;
+    z-index: 999;
     
     .burger {
         width: 100%;
@@ -397,11 +457,11 @@ a:active {
 
 .header-body {
     position: absolute;
-    top: 50%;
-    left: 10%;
-    width: fit-content;
-    text-align: center;
-    transform: translateY(-50%);
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-left: 10%;
+    align-content: center;
 }
 
 .slogan {
@@ -411,28 +471,28 @@ a:active {
 }
 
 .slogan h1 {
-    font-size: 85px;
+    font-size: 89.5px;
     letter-spacing: 4px;
     line-height: 3rem;
 }
 
-.slogan h2 {
+.slogan p {
     margin-top: 20px;
     text-transform: none;
     font-size: 48px;
     font-weight: 300;
 }
 
-.slogan h2 span {
+.slogan p span {
     padding: 5px 15px;
     border-radius: 20px;
 }
 
-.slogan h2 span:nth-child(1) {
+.slogan p span:nth-child(1) {
     background-color: var(--color-blue-green);
 }
 
-.slogan h2 span:nth-child(2) {
+.slogan p span:nth-child(2) {
     background-color: var(--alert-success);
 }
 
@@ -440,18 +500,19 @@ a:active {
     margin-top: 25px;
 }
 
-.head-btn hover-button h2,
-.head-btn hover-button h3 {
-    color: var(--color-text);
-}
-
 .primary-btn {
     margin-bottom: 20px;
+    p {
+        font-size: 36px;
+    }
 }
 
 .secondary-btn {
     display: flex;
     justify-content: space-between;
+    p {
+        font-size: 28px;
+    }
 }
 
 .secondary-btn hover-button {
@@ -464,6 +525,7 @@ a:active {
     position: absolute;
     bottom: 30px;
     right: 40px;
+    cursor: pointer;
 }
 
 .arrow-down span {
@@ -476,8 +538,86 @@ a:active {
     border: none;
 }
 
+
+
 /* ------------------------------------- */
 /* ?MAIN? */
 /* ------------------------------------- */
 
-main {height: 100vh; background-color: var(--color-light);}
+main {
+    position: relative;
+    padding-top: var(--section-padding);
+}
+
+main > .container {
+    position: relative;
+}
+
+.description {
+    display: block;
+    width: 100%;
+        
+    h4 {
+        line-height: var(--gap-padding);
+        text-align: justify;
+    }
+}
+
+/* *about us btn* */
+.about-us {
+    display: flex;
+    padding-bottom: calc(var(--section-padding)/2);
+    justify-content: right;
+}
+
+.btn-about {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+
+/* *create simulation* */
+.create-sim {
+    color: var(--color-text-light);
+    background-color: var(--color-dark);
+}
+
+.create-title {
+    h2 {
+        font-size: 7rem;
+        letter-spacing: 0.1rem;
+    }
+}
+
+/* *top simulation* */
+/* .top-sim {
+    padding-top: calc(var(--section-padding)/2);
+    padding-bottom: calc(var(--section-padding)/2);
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    color: var(--color-text-light);
+    background-color: var(--color-dark);
+}
+
+.tom-title {
+    position: relative;
+    margin-bottom: calc(var(--section-padding)/4);
+    width: fit-content;
+    height: 10rem;
+    overflow: hidden;
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 90%;
+        width: 100%;
+        height: 0.5rem;
+        background-color: var(--alert-error);
+    }
+}
+
+.tom-title .title {
+    width: fit-content;
+    font-size: 7rem;
+    white-space: nowrap;
+} */

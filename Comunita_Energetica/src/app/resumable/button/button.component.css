@@ -7,7 +7,7 @@
     letter-spacing: 1.5px;
     border: 2px solid var(--color-border);
     border-radius: 3em;
-    color: var(--color-text-light);
+    color: var(--color-text);
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -20,7 +20,33 @@
     }
 }
 
-.button{
+.btn-rounded {
+    position: relative;
+    display: flex;
+    width: 10rem;
+    height: 10rem;
+    font-family: "Rubik", sans-serif;
+    letter-spacing: 1.5px;
+    border: none;
+    border-radius: 50%;
+    color: var(--color-text-light);
+    background-color: var(--color-dark);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 0;
+    ng-content {
+        position: relative;
+        letter-spacing: 1px;
+        font-size: 16px;
+        font-weight: 300;
+        transition: color 0.4s linear;
+        z-index: 1;
+    }
+}
+
+.button {
     position: relative;
     width: 80px;
     height: 80px;
@@ -32,29 +58,6 @@
     justify-content: center;
     overflow: hidden;
     z-index: 0;
-}
-
-.btn-rounded {
-    position: absolute;
-    display: flex;
-    cursor: pointer;
-    width: 100px;
-    height: 100px;
-    font-family: "Bebas Neue", sans-serif;
-    border: 2px solid var(--color-border);
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-light);
-    overflow: hidden;
-    z-index: 0;
-    p {
-        letter-spacing: 1.5px;
-        font-size: 16px;
-        font-weight: 300;
-        z-index: 2;
-        position: relative;
-    }
 }
 
 .hover-circle {

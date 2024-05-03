@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 /* ------------------------------------- */
 /* ?Basic Setup */
@@ -11,7 +12,7 @@
     --color-prussian-blue: #023047;
     --color-selective-yellow: #ffd15c;
     --color-ut-orange: #FB8500;
-    --color-skin: #f4bdb4;
+    --color-skin: #f4b9af;
 
     --border-test: 1px solid red;
     
@@ -45,9 +46,9 @@
 
 html,
 body {
-    color: var(--color-dark);
-    background-color: var(--color-dark);
-    font-family: "Bebas Neue", sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-light);
+    font-family: "Rubik", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;

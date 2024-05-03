@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import gsap, { Power4, Elastic } from 'gsap';
 
 @Component({
@@ -9,7 +9,7 @@ import gsap, { Power4, Elastic } from 'gsap';
 
 export class MagneticComponent implements OnInit {
     @Input() content!: ElementRef;
-    @ViewChild('magneto', { static: true }) magneto!: ElementRef;
+    @ViewChild('magneto', { read: ElementRef, static: true }) magneto!: ElementRef;
 
     ngOnInit(): void {
         this.moveButton();
@@ -21,9 +21,9 @@ export class MagneticComponent implements OnInit {
             let magnetoStrength: number = 0;
             let magnetoTextStrength: number = 0;
 
-            if (this.magneto.nativeElement.height > 70) {
+            if (this.magneto.nativeElement.offsetHeight > 200) {
                 magnetoStrength = 50;
-                magnetoTextStrength = 100;
+                magnetoTextStrength = 80;
             } else {
                 magnetoStrength = 30;
                 magnetoTextStrength = 20;
