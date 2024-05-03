@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { ButtonComponent } from './resumable/button/button.component';
 import { MagneticComponent } from './resumable/magnetic/magnetic.component';
+import { InViewportDirective } from './directive/in-viewport.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MagneticComponent } from './resumable/magnetic/magnetic.component';
     RegisterComponent,
     LandingPageComponent,
     ButtonComponent,
-    MagneticComponent
+    MagneticComponent,
+    InViewportDirective,
   ],
   imports: [
     BrowserModule,

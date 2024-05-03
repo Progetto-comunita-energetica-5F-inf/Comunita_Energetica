@@ -27,9 +27,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-                "https://unpkg.com/@splinetool/viewer@1.1.7/build/spline-viewer.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
