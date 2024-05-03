@@ -13,12 +13,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export class LandingPageComponent implements OnInit, AfterViewInit {
     @ViewChild('burger', { static: true }) burger!: ElementRef;
     @ViewChild('canvas', { static: true }) canvas!: ElementRef;
-    @ViewChild('animatedText', { static: true }) textCont!: ElementRef;
 
     isBurgerActive: boolean = false;
     isDescActive: boolean = false;
-    
-    animatedText: SplitType = new SplitType(this.textCont.nativeElement.innerHTML, { types: 'lines,words'});
+
+    lines!: HTMLElement[] | null;    
     
     ngOnInit(): void {
         this.loadCanvas();
@@ -26,11 +25,8 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     };
     
     ngAfterViewInit(): void {
-        console.log("Contenuto h2:", this.textCont.nativeElement.innerHTML);
-        const words = this.animatedText.words;
-        const lines = this.animatedText.lines;
-        console.log(words);
-        console.log(lines);
+        const animatedText: SplitType = new SplitType('.animatedText', { types: 'lines'});
+        this.lines = animatedText.lines;
     }
 
     showBurger(): void {
@@ -56,10 +52,8 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
     };
 
     animateText = () => {
-        // console.log(this.lines);
-        
-        // gsap.fromTo(this.lines, 
-        //     {y: 100, opacity: 0},
-        //     {y: 0, opacity: 1, stagger: 0.3, delay: 0.3, duration: 1.5, ease: 'power4.out'});
+        gsap.fromTo(this.lines, 
+            {y: 100, opacity: 0},
+            {y: 0, opacity: 1, stagger: 0.3, delay: 0.3, duration: 1.5, ease: 'power4.out'});
     }
 }
